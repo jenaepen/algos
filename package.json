@@ -4,7 +4,7 @@
   "description": "Algo Problems",
   "main": "median-of-two-sorted-arrays.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
