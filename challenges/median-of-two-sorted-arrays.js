@@ -114,9 +114,8 @@ const findMedianSortedArraysLog = function(nums1, nums2) {
     const lengthTwo= nums2.length;
     const maxLength = lengthOne + lengthTwo;
     let partition1 = Math.floor((startIndex + endIndex)/2)
-    console.log('partition1:', partition1)
+
     let partition2 = Math.floor((maxLength +1)/2 - partition1)
-    console.log('partition2:', partition2)
     // leftOneIndex is the left of the partition for nums1
       let leftOneIndex; 
     
@@ -142,24 +141,16 @@ const findMedianSortedArraysLog = function(nums1, nums2) {
     do {
         
         leftOneIndex = partition1 -1; 
-        console.log('leftOneIndex:', leftOneIndex)
         rightOneIndex = partition1;
-        console.log('rightOneIndex:', rightOneIndex)
         leftTwoIndex = partition2 -1;
-        console.log('leftTwoIndex:', leftTwoIndex)
         rightTwoIndex = partition2;
-        console.log('rightTwoIndex:', rightTwoIndex)
-
+   
         if(!nums1.hasOwnProperty(leftOneIndex)) nums1[leftOneIndex] = -Infinity;
         if(!nums2.hasOwnProperty(leftTwoIndex)) nums2[leftTwoIndex] = -Infinity;
         if(!nums1.hasOwnProperty(rightOneIndex)) nums1[rightOneIndex] = Infinity;
         if(!nums2.hasOwnProperty(rightTwoIndex)) nums2[rightTwoIndex] = Infinity;
 
         if(nums1[leftOneIndex] <= nums2[rightTwoIndex] && nums2[leftTwoIndex] <= nums1[rightOneIndex] ) {
-            console.log("nums1[leftOneIndex]",nums1[leftOneIndex]);
-            console.log("nums1[rightOneIndex]",nums1[rightOneIndex]);
-            console.log("nums2[leftTwoIndex]",nums2[leftTwoIndex]);
-            console.log("nums2[rightTwoIndex]",nums2[rightTwoIndex]);
             return maxLength % 2 === 0 ? (Math.max(nums1[leftOneIndex], nums2[leftTwoIndex]) + Math.min(nums1[rightOneIndex], nums2[rightTwoIndex]))/2 : Math.max(nums1[leftOneIndex], nums2[leftTwoIndex])  
         }
         if(nums1[leftOneIndex] > nums2[rightTwoIndex]){
@@ -177,9 +168,6 @@ const findMedianSortedArraysLog = function(nums1, nums2) {
     } while ( partition1 <= lengthOne )
         
 };
-
-
-console.log('findMedianSortedArraysLog([4,5,6],[1,2,3]):', findMedianSortedArraysLog([4,5,6],[1,2,3]))
 
 
 module.exports = {findMedianSortedArrays, findMedianSortedArraysLog};
