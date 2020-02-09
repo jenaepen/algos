@@ -27,43 +27,42 @@ Output:
 ]
  */
 
- /**
+/**
  * @param {number[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
 const gameOfLife = function(board) {
-    //initiate a game dictionary 
-    const dict = {
-        0: {3:1},
-        1: {
-            0:0,
-            1:0,
-            2:1,
-            3:1
-        }
+  //initiate a game dictionary
+  const dict = {
+    0: { 3: 1 },
+    1: {
+      0: 0,
+      1: 0,
+      2: 1,
+      3: 1
     }
-    // return array from mapping
-    return board.map((outerArr, i)=>{
-        return outerArr.map((element,j)=>{
-            let sum = 0;
-            if(board[i-1]!== undefined) {
-                if(board[i-1][j-1] !== undefined) sum += board[i-1][j-1];
-                if(board[i-1][j] !== undefined) sum += board[i-1][j];
-                if(board[i-1][j+1] !== undefined) sum += board[i-1][j+1];
-            }
-            
-            if(board[i][j-1] !== undefined) sum += board[i][j-1];
-            if(board[i][j+1] !== undefined) sum += board[i][j+1];
-            
-            if(board[i+1] !== undefined){
-                if(board[i+1][j-1] !== undefined) sum += board[i+1][j-1];
-                if(board[i+1][j] !== undefined) sum += board[i+1][j];
-                if(board[i+1][j+1] !== undefined) sum += board[i+1][j+1];
-            }
-            return dict[element][sum]!== undefined ? dict[element][sum]: 0;
-        })
-    })
+  };
+  // return array from mapping
+  return board.map((outerArr, i) => {
+    return outerArr.map((element, j) => {
+      let sum = 0;
+      if (board[i - 1] !== undefined) {
+        if (board[i - 1][j - 1] !== undefined) sum += board[i - 1][j - 1];
+        if (board[i - 1][j] !== undefined) sum += board[i - 1][j];
+        if (board[i - 1][j + 1] !== undefined) sum += board[i - 1][j + 1];
+      }
+
+      if (board[i][j - 1] !== undefined) sum += board[i][j - 1];
+      if (board[i][j + 1] !== undefined) sum += board[i][j + 1];
+
+      if (board[i + 1] !== undefined) {
+        if (board[i + 1][j - 1] !== undefined) sum += board[i + 1][j - 1];
+        if (board[i + 1][j] !== undefined) sum += board[i + 1][j];
+        if (board[i + 1][j + 1] !== undefined) sum += board[i + 1][j + 1];
+      }
+      return dict[element][sum] !== undefined ? dict[element][sum] : 0;
+    });
+  });
 };
 
-
-module.exports = gameOfLife
+module.exports = gameOfLife;
