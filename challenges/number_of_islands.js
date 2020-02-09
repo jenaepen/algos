@@ -37,8 +37,8 @@ const numIslands = function(grid) {
   // iterate over the grid
   for (let row = 0; row < grid.length; row += 1) {
     for (let column = 0; column < grid[0].length; column += 1) {
-      // if the value at [row][column] is 1 add one to count
-      if (grid[row][column] === 1) {
+      // if the value at [row][column] is 1 or "1" add one to count
+      if (grid[row][column] == 1) {
         count += 1;
         depthFirstSearch(grid, row, column);
       }
@@ -49,8 +49,8 @@ const numIslands = function(grid) {
 
 // helper function
 function depthFirstSearch(grid, row, column) {
-    // check if reach an end
-    if(row < 0 || column < 0 || row >= grid.length || column >= grid[0].length || grid[row][column] === 0)
+    // check if reach an end or out of bounds
+    if(row < 0 || column < 0 || row >= grid.length || column >= grid[0].length || grid[row][column] == 0)
     return;
     // reassign the grid[row][column] to 0 to indicate we have been there
     grid[row][column] = 0;
