@@ -22,44 +22,43 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
  * @return {number}
  */
 const maxProfit = function(prices) {
-    // initialize a variable to 0 and this variable will keep track of the max profit
-    let maxValue = 0;
+  // initialize a variable to 0 and this variable will keep track of the max profit
+  let maxValue = 0;
 
-    // iterate over the array price
-    for(let i = 0; i <  prices.length; i += 1){
-        let buy = prices[i];
-        for(let j = i + 1; j < prices.length; j +=1 ){
-            // check if the buy minus the current price is greater than the current max profit, then set maxProfit to that value
-            const currentProfit = prices[j] - buy;
-            if(currentProfit > maxValue){
-                maxValue = currentProfit;
-            }
-        }
+  // iterate over the array price
+  for (let i = 0; i < prices.length; i += 1) {
+    let buy = prices[i];
+    for (let j = i + 1; j < prices.length; j += 1) {
+      // check if the buy minus the current price is greater than the current max profit, then set maxProfit to that value
+      const currentProfit = prices[j] - buy;
+      if (currentProfit > maxValue) {
+        maxValue = currentProfit;
+      }
     }
-    //return max profit
-    return maxValue;
+  }
+  //return max profit
+  return maxValue;
 };
-
 
 const maxProfit2 = function(prices) {
-    // initialize a variable to 0 and this variable will keep track of the max profit
-    let maxValue = 0;
-    // initialize buy to the first value
-    let buy = prices[0];
-    // iterate over the array price
-    for(let i = 1; i <  prices.length; i += 1){
-        // check if the buy minus the current price is greater than the current max profit, then set maxProfit to that value
-        const currentProfit = prices[i] - buy;
-        if(currentProfit > maxValue){
-            maxValue = currentProfit;
-        }
-        // if a lower buy price comes up, reassign buy to it
-        if(buy > prices[i]){
-            buy = prices[i]
-        }
+  // initialize a variable to 0 and this variable will keep track of the max profit
+  let maxValue = 0;
+  // initialize buy to the first value
+  let buy = prices[0];
+  // iterate over the array price
+  for (let i = 1; i < prices.length; i += 1) {
+    // check if the buy minus the current price is greater than the current max profit, then set maxProfit to that value
+    const currentProfit = prices[i] - buy;
+    if (currentProfit > maxValue) {
+      maxValue = currentProfit;
     }
-    //return max profit
-    return maxValue;
+    // if a lower buy price comes up, reassign buy to it
+    if (buy > prices[i]) {
+      buy = prices[i];
+    }
+  }
+  //return max profit
+  return maxValue;
 };
 
-module.exports = {maxProfit,maxProfit2};
+module.exports = { maxProfit, maxProfit2 };

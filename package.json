@@ -4,7 +4,9 @@
   "description": "Algo Problems",
   "main": "median-of-two-sorted-arrays.js",
   "scripts": {
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "lint": "eslint \"challenges/**/*.js\" --quiet",
+    "format": "prettier \"challenges/**/*.js\" --write"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,11 @@
     "node": "^13.7.0"
   },
   "devDependencies": {
-    "jest": "^25.1.0"
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1"
   }
 }
